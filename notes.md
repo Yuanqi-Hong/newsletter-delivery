@@ -1,0 +1,6 @@
+- according to stackoverflow, "you're not making a set of functions available for a particular route, you're defining the one specific thing the server will do when that route is called."
+- with AJAX, you can run some background process without any refreshing; whereas without AJAX and JavaScript you'll have to reload when you're doing something new.
+- according to W3Schools, AJAX = Asynchronous JavaScript And XML. it is not a programming language.
+- script tag之间是并行处理的，script tag内部是线性的
+- but put the script tags right before their corresponding buttons
+- jinja2 escaping doesn't seem to work in app.py returns

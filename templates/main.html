@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+  <h1>Newsletter Delivery Service</h1>
+  <h3>Get personalized newsletter on any topic of your choice.</h3>
+  <p>Hi there! Welcome to NDS, your personalized newsletter delivery service. Type in your name, email, topic you're interested in, and the time at which you would like your delivery to subscribe to our service. Want to try out our newsletter before subscription? No problem! Fill out your email and topic of choice in the second form down below and get a sample newsletter right away! Enjoy :)</p>
+</div>
+<form action="{{ url_for('result') }}" method="post">
+  <div>Subscribe to our newsletter</div>
+  <table>
+    <tr>
+      <td><span>User Name</span></td>
+      <td><input type="text" name="user_name" /></td>
+    </tr>
+    <tr>
+      <td><span>Email</span></td>
+      <td><input type="email" name="user_email" /></td>
+    </tr>
+    <tr>
+      <td><span>Interested Topic</span></td>
+      <td><input type="text" name="user_topic" /></td>
+    </tr>
+    <tr>
+      <td><span>Delivery Time</span></td>
+      <td><input type="time" name="newstime" /></td>
+    </tr>
+    <tr>
+      <td colspan="9"><input type="checkbox" checked />I am willing to receive the newsletter as an email.</td>
+    </tr>
+    <tr>
+      <td colspan="9"><button type="submit" name="submit">Susbcribe</button></td>
+    </tr>
+    <!-- <tr>
+      <td colspan="9"><a href=# id=ourNews><button type="submit" onClick="tryOurNews()" class="btn btn-default">Subscribe</button></a></td>
+    </tr> -->
+  </table>
+</form>
+<form action="{{ url_for('immediate') }}" method="post">
+  <div>Get a newsletter now</div>
+  <table>
+    <tr>
+      <td><span>Email</span></td>
+      <td><input type="email" name="user_email" /></td>
+    </tr>
+    <tr>
+      <td><span>Interested Topic</span></td>
+      <td><input type="text" name="user_topic" /></td>
+    </tr>
+    <tr>
+      <td colspan="9"><button type="submit" name="immediate">Send Now</button></td>
+    </tr>
+  </table>
+</form>
+<div align="center">
+  <!-- <button onClick="tryYourNews()">Try your News</button> -->
+  <!-- <a href=# id=try-our-news><button class="btn btn-default" onClick="tryOurNews()">Try our newsletter</button></a> -->
+  <!-- <button class="btn btn-default" onClick="tryOurNews1()">Try our newsletter (without a tag)</button> -->
+  <!-- AJAX -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type=text/javascript> $(function() { $('a#ourNews').bind('click', function() { $.getJSON('/send_news', function(data) { // do nothing }); return false; }); $('a#googleNews').bind('click', function() { $.getJSON('/send_news', function(data) { // do nothing }); return false; }); }); </script> <!-- AJAX test button -->
+    <!-- <div class='container'> -->
+  <!-- <form> -->
+    <!-- <a href=# id=ourNews><button type="submit" onClick="tryOurNews()" class="btn btn-default">Subscribe</button></a> -->
+  <!-- </form> -->
+<!-- </div> -->
+
+
+<script>
+  function tryOurNews() { alert("You should receive our newsletter soon."); }
+</script>
+</div>
+<div align="center">
+  <!-- <a href=# id=googleNews><button onClick="tryGoogleNews()">Try Google News</button></a> -->
+  <script>
+  function tryGoogleNews() {
+    alert("You will receive news selected by Google");
+  }
+  </script>
+</div>
+<div style="background-color:rgba(136, 132, 133, 0.91)" align="center"><button onClick="unsubscribe()">Unsubscribe</button>
+  <script>
+  function unsubscribe() {
+    alert("So sad to see you go :( Hope that you would come back in the future!");
+  }
+  </script>
+</div>
+{% endblock %}
